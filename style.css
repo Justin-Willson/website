@@ -10,6 +10,6 @@ header {
 }
 
 .parallax {
-    background: url(Nighthawks_by_Edward_Hopper_1942.jpg) fixed 100%;
+    background: url(Nighthawks_by_Edward_Hopper_1942.jpg) fixed;
     height: 400px;
 }
