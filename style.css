@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+header {
+    background-color: #639072;
+    height: 50px;
+}
+
+.parallax {
+    background: url(Nighthawks_by_Edward_Hopper_1942.jpg) fixed 100%;
+    height: 400px;
+}
