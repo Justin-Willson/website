@@ -53,11 +53,11 @@ $(document).ready(function() {
 
     //Attach animations to buttons
     $(".left-nav").click(function() {
-        slideLeft();
+        slideRight();
     });
 
     $(".right-nav").click(function() {
-        slideRight();
+        slideLeft();
     });
 
 
