@@ -29,38 +29,35 @@ $(document).ready(function() {
     //Animations for slider
     var slideLeft = function() {
         $(".img-"+next).css( {"left": sliderWidth+"px"} );
-        $(".img-"+current).animate( {left: sliderWidth}, 1000 );
+        $(".img-"+current).animate( {left: sliderWidth * -1}, 1000 );
         $(".img-"+next).animate( {left: "0px"}, 1000 );
-        console.log("Slide Left Before Increase Current: " + current + " Next: " + next + " Prev: " + prev);
         current = next;
         increaseImages();
-        console.log("Slide Left  After Increase Current: " + current + " Next: " + next + " Prev: " + prev);
     };
 
     var slideRight = function() {
         $(".img-"+prev).css( {"left": (sliderWidth * -1)+"px"} );
         $(".img-"+current).animate( {left: sliderWidth}, 1000 );
         $(".img-"+prev).animate( {left: "0px"}, 1000 );
-        console.log("Slide Right");
         current = prev;
         increaseImages();
     };
     
     //Initial setup for images, put all images to the right so we can move them in
     var resetImg = function() {
-        $(".img-container img").css({"left": sliderWidth+"px"});
-        $(".img-container img").first().css({"left": "0px"});
+        $(".img-container").css({"left": sliderWidth+"px"});
+        $(".img-container").first().css({"left": "0px"});
         console.log("Reset Images")
     };
     resetImg();
 
     //Attach animations to buttons
     $(".left-nav").click(function() {
-        slideRight();
+        slideLeft();
     });
 
     $(".right-nav").click(function() {
-        slideLeft();
+        slideRight();
     });
 
 
