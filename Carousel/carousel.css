@@ -9,7 +9,7 @@
     height: 500px;
     background-color: #333333;
     position: relative;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 .carousel .img-container {
@@ -21,11 +21,9 @@
 
 .img-container img {
     height: 450px;
+    position: relative;
     margin: auto;
 }
-
-
-
 
 .dots {
     display: block;

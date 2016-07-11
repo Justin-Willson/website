@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var numImg = $(".img-container img").length;
     var sliderWidth = $(window).width();
-    var current = 0;
-    var next = 1;
+    var current = 1;
+    var next = 2;
     var prev = numImg;
     console.log(numImg);
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
     var slideLeft = function() {
         $(".img-"+next).css( {"left": sliderWidth+"px"} );
         $(".img-"+current).animate( {left: sliderWidth * -1}, 1000 );
-        $(".img-"+next).animate( {left: "0px"}, 1000 );
+        $(".img-"+next).animate( {left: ((sliderWidth/2)-($(".img-"+next).width()/2))+"px"}, 1000 );
         current = next;
         increaseImages();
     };
@@ -38,15 +38,15 @@ $(document).ready(function() {
     var slideRight = function() {
         $(".img-"+prev).css( {"left": (sliderWidth * -1)+"px"} );
         $(".img-"+current).animate( {left: sliderWidth}, 1000 );
-        $(".img-"+prev).animate( {left: "0px"}, 1000 );
+        $(".img-"+prev).animate( {left: ((sliderWidth/2)-($(".img-"+prev).width()/2))+"px"}, 1000 );
         current = prev;
         increaseImages();
     };
     
     //Initial setup for images, put all images to the right so we can move them in
     var resetImg = function() {
-        $(".img-container").css({"left": sliderWidth+"px"});
-        $(".img-container").first().css({"left": "0px"});
+        $(".img-container").css({"left": (sliderWidth)+"px"});
+        $(".img-container").first().css({"left": ((sliderWidth/2)-$(".img-container").first().width()/2)+"px"});
         console.log("Reset Images")
     };
     resetImg();
@@ -63,7 +63,7 @@ $(document).ready(function() {
 
     //highlight nav buttons on hover
     $(".right-nav, .left-nav").hover(function() {
-        $(this).css( {"background-color": "#d3d3d3"} );
+        $(this).css( {"background-color": "rgba(27, 27, 27, .9)"} );
     }, function() {
         $(this).css( {"background-color": "transparent"} );
     });
