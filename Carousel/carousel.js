@@ -16,13 +16,25 @@ $(document).ready(function() {
     var current = 1;
     var next = 2;
     var prev = numImg;
+    var myInterval = 3000;
+
+    //initiate interval
+    var timer = setInterval(function() { slideLeft() }, myInterval);
     
 
-    //Add dots to screen
-    //TODO: Add dot highlighting functionality
+    //Add dots to screen and implement 
     for( var i = 1; i <= numImg; i++ ) {
         $(".dots").append('<div class="dot" id="dot-' + i + '"></div>');
     }
+
+    $(".dot").click(function() {
+        var goal = $(this).index() + 1;
+        $(".img-"+goal).css( {"left": sliderWidth+"px"} );
+        $(".img-"+current).animate( {left: $(".img-"+current).width() * -1}, 1000 );
+        $(".img-"+goal).animate( {left: ((sliderWidth/2)-($(".img-"+next).width()/2))+"px"}, 1000 );
+        current = goal;
+        increaseImages();
+    });
 
     //Helper function to cycle through and store image indicies
     var increaseImages = function() {
@@ -72,10 +84,14 @@ $(document).ready(function() {
     //Attach animations to buttons
     $(".left-nav").click(function() {
         slideRight();
+        clearInterval(timer);
+        timer = setInterval(function() { slideLeft() }, myInterval);
     });
 
     $(".right-nav").click(function() {
         slideLeft();
+        clearInterval(timer);
+        timer = setInterval(function() { slideLeft() }, myInterval);
     });
 
     //Reset images on screen resize
@@ -83,10 +99,5 @@ $(document).ready(function() {
         resetImg();
     });
 
-    //highlight nav buttons on hover
-    $(".right-nav, .left-nav").hover(function() {
-        $(this).css( {"background-color": "rgba(27, 27, 27, .9)"} );
-    }, function() {
-        $(this).css( {"background-color": "transparent"} );
-    });
+    
 });

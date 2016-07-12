@@ -74,6 +74,7 @@
 
 .left-nav:hover, .right-nav:hover {
     color: #CF5113;
+    background-color: rgba(27, 27, 27, .9)
 }
 
 .left-nav {
