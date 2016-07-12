@@ -29,7 +29,7 @@ $(document).ready(function() {
     //Animations for slider
     var slideLeft = function() {
         $(".img-"+next).css( {"left": sliderWidth+"px"} );
-        $(".img-"+current).animate( {left: sliderWidth * -1}, 1000 );
+        $(".img-"+current).animate( {left: $(".img-"+current).width() * -1}, 1000 );
         $(".img-"+next).animate( {left: ((sliderWidth/2)-($(".img-"+next).width()/2))+"px"}, 1000 );
         current = next;
         increaseImages();
@@ -47,7 +47,7 @@ $(document).ready(function() {
     var resetImg = function() {
         sliderWidth = $(window).width();
         $(".img-container").css({"left": (sliderWidth)+"px"});
-        $(".img-"+current).css({"left": ((sliderWidth/2)-$(".img-container").first().width()/2)+"px"});
+        $(".img-"+current).css({"left": ((sliderWidth/2)-$(".img-"+current).width()/2)+"px"});
         console.log("Reset Images")
     };
     resetImg();
