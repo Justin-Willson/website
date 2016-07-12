@@ -1,14 +1,27 @@
 $(document).ready(function() {
+    /*  Function to make a simple caurosel
+    
+        REQUIREMENTS: images of the form
+            <div class="img-container img-*"> <- *= image index
+                <img>
+            </div>
+            Two <div> of class left-nav and right-nav
+    */
+
+    //TODO: Add ability to populate from arbitrary list of images
+
+    //inatialize variables and store relative position
     var numImg = $(".img-container img").length;
     var sliderWidth = $(window).width();
     var current = 1;
     var next = 2;
     var prev = numImg;
-    console.log(numImg);
+    
 
-    //add dots to screen
-    for( var i = 0; i < numImg; i++ ) {
-        $(".dots").append("<div></div>");
+    //Add dots to screen
+    //TODO: Add dot highlighting functionality
+    for( var i = 1; i <= numImg; i++ ) {
+        $(".dots").append('<div class="dot" id="dot-' + i + '"></div>');
     }
 
     //Helper function to cycle through and store image indicies
@@ -24,6 +37,10 @@ $(document).ready(function() {
 				prev = current - 1;
 			}
 		}
+
+        //update active dot
+        $(".dot").removeClass("active");
+        $("#dot-"+current).addClass("active");
     };
 
     //Animations for slider
@@ -48,7 +65,7 @@ $(document).ready(function() {
         sliderWidth = $(window).width();
         $(".img-container").css({"left": (sliderWidth)+"px"});
         $(".img-"+current).css({"left": ((sliderWidth/2)-$(".img-"+current).width()/2)+"px"});
-        console.log("Reset Images")
+        $("#dot-"+current).addClass("active");
     };
     resetImg();
 
@@ -71,9 +88,5 @@ $(document).ready(function() {
         $(this).css( {"background-color": "rgba(27, 27, 27, .9)"} );
     }, function() {
         $(this).css( {"background-color": "transparent"} );
-    });
-
-    $(".right-nav, .left-nav").on("click", function(e) {
-        console.log( "CLICK!" );
     });
 });
