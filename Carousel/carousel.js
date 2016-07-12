@@ -45,8 +45,9 @@ $(document).ready(function() {
     
     //Initial setup for images, put all images to the right so we can move them in
     var resetImg = function() {
+        sliderWidth = $(window).width();
         $(".img-container").css({"left": (sliderWidth)+"px"});
-        $(".img-container").first().css({"left": ((sliderWidth/2)-$(".img-container").first().width()/2)+"px"});
+        $(".img-"+current).css({"left": ((sliderWidth/2)-$(".img-container").first().width()/2)+"px"});
         console.log("Reset Images")
     };
     resetImg();
@@ -60,6 +61,10 @@ $(document).ready(function() {
         slideLeft();
     });
 
+    //Reset images on screen resize
+    $(window).on("resize", function() {
+        resetImg();
+    });
 
     //highlight nav buttons on hover
     $(".right-nav, .left-nav").hover(function() {
