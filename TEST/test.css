@@ -1,0 +1,58 @@
+.dots {
+    position: relative;
+    float: bottom center;
+    width: 100%;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    border: 2px solid #275252;
+    background-color: #97DDF7;
+    margin: 5px;
+    float: left;
+}
+
+.active {
+    background-color: #CF5113;
+}
+
+.dot.focus {
+    box-shadow: 0px 0px 1px 1px;
+}
+
+
+
+/*Palett stuff*/
+.palett {
+    height: 100px;
+    width: 600px;
+    background-color: #275252;
+    margin: 0px;
+    line-height: 100px;
+    padding: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main {
+    background-color: #047BB3;
+    color: white;
+}
+
+.dark {
+    background-color: #275252;
+    color: white;
+}
+
+.light {
+    background-color: #97DDF7;
+}
+
+.accent {
+    background-color: #CF5113;
+}
+
+.highlight {
+    background-color: #8C3206;
+}
